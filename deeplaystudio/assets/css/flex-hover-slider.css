@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+ .flex-container {
+	 position: relative;
+	 height: auto;
+	 width: auto;
+	 display: -webkit-flex;
+	/* Safari */
+	 display: flex;
+	 overflow: hidden;
+}
+@media screen and (max-width: 768px) {
+	 .flex-container {
+		 flex-direction: column;
+	}
+}
+.flex-title {
+    position: relative;
+    font-size: 2.5vw;
+    font-family: 'Orbitron'; /* Monospace fontları genellikle "cyber" temalı tasarımlarda kullanılır */
+	white-space: nowrap; /* Metni tek satırda tutar ve satır atlamasını önler. */
+    margin: auto;
+    text-align: center;
+    transform: rotate(90deg);
+    top: 65%;
+    padding: 10px;
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+.flex-mobile-title{
+	position: relative;
+    font-size: 4vw;
+    font-family: 'Orbitron'; /* Monospace fontları genellikle "cyber" temalı tasarımlarda kullanılır */
+	white-space: nowrap; /* Metni tek satırda tutar ve satır atlamasını önler. */
+    margin: auto;
+    text-align: center;
+    transform: rotate(0);
+    top: 25%;
+    padding: 10px;
+}
+.flex-aqua{
+    color: #0ff; /* Neon aqua */
+    text-shadow: 0 0 6px rgba(0, 255, 255, 0.468), 0 0 12px rgba(0, 255, 255, 0.468), 0 0 18px rgba(0, 255, 255, 0.468); /* Neon ışık etkisi için gölge */
+}
+.flex-purple{
+    color: #601b9c; /* Neon purple */
+    text-shadow: 0 0 6px rgba(96, 27, 156, 0.468), 0 0 12px rgba(96, 27, 156, 0.468), 0 0 18px rgba(96, 27, 156, 0.468); /* Neon ışık etkisi için gölge */
+}
+.flex-yellow{
+    color: #ffff00; /* Neon yellow */
+    text-shadow: 0 0 6px rgba(255, 255, 0, 0.468), 0 0 12px rgba(255, 255, 0, 0.468), 0 0 18px rgba(255, 255, 0, 0.468); /* Neon ışık etkisi için gölge */
+}
+.flex-green {
+    color: #00ff00; /* Neon green */
+    text-shadow: 0 0 6px rgba(0, 255, 0, 0.468), 0 0 12px rgba(0, 255, 0, 0.468), 0 0 18px rgba(0, 255, 0, 0.468); /* Neon ışık etkisi için gölge */
+}
+.flex-white {
+    color: #fff;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.468), 0 0 12px rgba(255, 255, 255, 0.468), 0 0 18px rgba(255, 255, 255, 0.468); /* Neon ışık etkisi için gölge */
+}
+
+@media screen and (max-width: 768px) {
+	.flex-container {
+		height: 100%;
+	}
+	.flex-title {
+		 transform: rotate(0deg) !important;
+	}
+}
+ .flex-about {
+    opacity: 0; 
+    position: relative;
+    width: 70%;
+    font-size: 1vw;
+    font-family: monospace;
+    padding: 5%;
+    top: 20%;
+    border-radius: 10px;
+    line-height: 1.3;
+    margin: auto;
+    text-align: left;
+    transform: rotate(0deg);
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+    transition: all 500ms ease;
+}
+.flex-mobile-about {
+    opacity: 1; 
+    position: relative;
+    width: 70%;
+    font-size: 3vw;
+    font-family: monospace;
+    padding: 5%;
+    top: 30%;
+    border-radius: 10px;
+    line-height: 1.3;
+    margin: auto;
+    text-align: left;
+    transform: rotate(0deg);
+}
+.flex-about img{
+	margin: 0 20px 0 20px;
+	width: 30%;
+	height: auto;
+}
+.flex-about-aqua{
+    color: #0ff; /* aqua */
+    border: 2px solid #0ff; /* aqua border */
+    box-shadow: 0 0 20px #0ff; /* aqua glow effect */
+}
+.flex-about-purple{
+    color: #601b9c; /* Purple */
+    border: 2px solid #601b9c; /* Purple border */
+    box-shadow: 0 0 20px #601b9c; /* Purple glow effect */
+}
+.flex-about-yellow{
+    color: #ffff00; /* Yellow */
+    border: 2px solid #ffff00; /* Yellow border */
+    box-shadow: 0 0 20px #ffff00; /* Yellow glow effect */
+}
+.flex-about-white{
+    color: #fff!important;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.468), 0 0 12px rgba(255, 255, 255, 0.468), 0 0 18px rgba(255, 255, 255, 0.468); /* Neon ışık etkisi için gölge */
+    border: 2px solid #fff; /* Yellow border */
+    box-shadow: 0 0 20px #fff; /* Yellow glow effect */
+}
+.flex-about-white a{
+    color: #fff!important;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.468), 0 0 12px rgba(255, 255, 255, 0.468), 0 0 18px rgba(255, 255, 255, 0.468); /* Neon ışık etkisi için gölge */
+}
+ @media screen and (max-width: 768px) {
+	 .flex-about {
+		 padding: 0%;
+		 border: 0px solid #f1f1f1;
+	}
+}
+ .flex-slide {
+	 -webkit-flex: 1;
+	/* Safari 6.1+ */
+	 -ms-flex: 1;
+	/* IE 10 */
+	 flex: 1;
+	 -webkit-transition: all 500ms ease;
+	 -moz-transition: all 500ms ease;
+	 -ms-transition: all 500ms ease;
+	 -o-transition: all 500ms ease;
+	 transition: all 500ms ease;
+}
+ @media screen and (max-width: 768px) {
+	 .flex-slide {
+		 overflow: auto;
+		 overflow-x: hidden;
+	}
+}
+ @media screen and (max-width: 768px) {
+	 .flex-slide p {
+		 font-size: 2em;
+	}
+}
+ @media screen and (max-width: 768px) {
+	 .flex-slide ul li {
+		 font-size: 2em;
+	}
+}
+ .flex-slide:hover {
+	 -webkit-flex-grow: 4;
+	 flex-grow: 4;
+}
+ .home {
+	 height: 100vh;
+	 background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../home1.jpg");
+	 background-size: cover;
+	 background-position: center center;
+	 background-attachment: fixed;
+}
+ @media screen and (min-width: 768px) {
+	 .home {
+		 animation: aboutFlexSlide 3s 1;
+		 animation-delay: 0s;
+	}
+}
+ @keyframes aboutFlexSlide {
+	 0% {
+		 -webkit-flex-grow: 1;
+		 flex-grow: 1;
+	}
+	 100% {
+		 -webkit-flex-grow: 3;
+		 flex-grow: 3;
+	}
+}
+
+ @keyframes homeFlextitle {
+	 0% {
+		 transform: rotate(90deg);
+		 top: 15%;
+	}
+	 50% {
+		 transform: rotate(0deg);
+		 top: 15%;
+	}
+	 100% {
+		 transform: rotate(90deg);
+		 top: 15%;
+	}
+}
+ .flex-about-home {
+	 opacity: 0;
+}
+.flex-about a {
+	color: inherit;
+	text-decoration: none;
+}
+.flex-about a:hover {
+	color: inherit;
+	text-decoration: none;
+}
+ @media screen and (min-width: 768px) {
+	 .flex-about-home {
+		 animation: aboutFlexSlide 3s 1;
+		 animation-delay: 0s;
+	}
+}
+ @keyframes flexAboutHome {
+	 0% {
+		 opacity: 0;
+	}
+	 50% {
+		 opacity: 1;
+	}
+	 100% {
+		 opacity: 0;
+	}
+}
+ .about {
+	height: 100vh;
+	 background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../home2.jpg");
+	 background-size: cover;
+	 background-position: center center;
+	 background-attachment: fixed;
+}
+.about-text, .about-mobile-text {
+	text-align: center;
+	font-size: 1vw;
+}
+
+.about-mobile-text img{
+	position:relative;
+	width:30%!important;
+	left: 35%;
+}
+.work-text, .work-mobile-text {
+	text-align: center;
+	font-size: 1vw;
+}
+.work-mobile-text img{
+	position:relative;
+	width:30%!important;
+	left: 35%;
+}
+ .contact-form {
+	 width: 100%;
+}
+ input {
+	 width: 100%;
+}
+ textarea {
+	 width: 100%;
+}
+.work {
+	height: 100vh;
+	background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../home3.jpg");
+	background-size: cover;
+	background-position: center center;
+	background-attachment: fixed;
+}
+ .contact {
+	 background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../home4.jpg");
+	 background-size: cover;
+	 background-position: center center;
+	 background-attachment: fixed;
+}
+ .spinner {
+	 position: fixed;
+	 top: 0;
+	 left: 0;
+	 background: #222;
+	 height: 100%;
+	 width: 100%;
+	 z-index: 11;
+	 margin-top: 0;
+	 color: #fff;
+	 font-size: 1em;
+}
+ .cube1, .cube2 {
+	 background-color: #fff;
+	 width: 15px;
+	 height: 15px;
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 -webkit-animation: sk-cubemove 1.8s infinite ease-in-out;
+	 animation: sk-cubemove 1.8s infinite ease-in-out;
+}
+ .cube2 {
+	 -webkit-animation-delay: -0.9s;
+	 animation-delay: -0.9s;
+}
+ @-webkit-keyframes sk-cubemove {
+	 25% {
+		 -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
+	}
+	 50% {
+		 -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
+	}
+	 75% {
+		 -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+	}
+	 100% {
+		 -webkit-transform: rotate(-360deg);
+	}
+}
+ @keyframes sk-cubemove {
+	 25% {
+		 transform: translateX(42px) rotate(-90deg) scale(0.5);
+		 -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
+	}
+	 50% {
+		 transform: translateX(42px) translateY(42px) rotate(-179deg);
+		 -webkit-transform: translateX(42px) translateY(42px) rotate(-179deg);
+	}
+	 50.1% {
+		 transform: translateX(42px) translateY(42px) rotate(-180deg);
+		 -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
+	}
+	 75% {
+		 transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+		 -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+	}
+	 100% {
+		 transform: rotate(-360deg);
+		 -webkit-transform: rotate(-360deg);
+	}
+}
+ 

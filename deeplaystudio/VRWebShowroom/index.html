@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sanal Müze Turu</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Quill Stilleri -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+    <script src="aframe.min.js"></script>
+    
+    <!-- Quill JS -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+  </head>
+  <body>
+      <header>
+        <a href="https://deeplaystudio.com">
+            <img class="logo" src="logo.png" alt="Your Logo"> <!-- Logo'nunuzun yolunu bu kısımda belirtiniz -->
+            <img class="logo-text-long" src="logo-text-long.png" alt="Your Logo"> <!-- Logo'nunuzun yolunu bu kısımda belirtiniz -->
+        </a>
+        <a href="https://deeplaystudio.com">
+            <img class="logo-deepclub-text" src="logo-deepclub-text.png" alt="Your Logo"> <!-- Logo'nunuzun yolunu bu kısımda belirtiniz -->
+            <img class="logo-deepclub" src="logo-deepclub.png" alt="Your Logo"> <!-- Logo'nunuzun yolunu bu kısımda belirtiniz -->
+        </a>
+    </header>
+    <main>
+      <section id="a-scene-container">
+        <!-- A-Frame Sahnesi -->
+
+        <a-scene embedded style="width: 100%; height: 100%;" cursor="rayOrigin: mouse; fuse: false" raycaster="objects: .clickable" vr-mode-ui="enabled: true">
+          <!-- Sahne içerikleri -->
+          <a-assets>
+            <a-asset-item id="my-glb-model" src="sergi_salonu_template.glb"></a-asset-item>
+            <a-asset-item id="earth" src="earth.glb"></a-asset-item>
+            <a-asset-item id="rhetorician" src="rhetorician.glb"></a-asset-item>
+            <a-asset-item id="snowman" src="Snowman.glb"></a-asset-item>
+            <a-asset-item id="barSignBoard" src="bar_sign_board.glb"></a-asset-item>
+          </a-assets>
+          <a-sky src="skybox.png" rotation="0 -130 0"></a-sky>
+    
+          <!-- Kamera -->
+          <a-camera position="0 2 0" wasd-controls="enabled: true; acceleration: 14; deceleration: 70" detect-close="target: #targetImage; minDistance: 5">
+            <a-cursor cursor material="opacity:0; transparent: true"></a-cursor>
+          </a-camera>
+    
+          <!-- glb-model -->
+          <a-entity gltf-model="#my-glb-model" position="-18.5 -2 3"></a-entity>
+    
+          <!-- Duvarlar -->
+    
+    
+          <!-- Tavan -->
+          <a-plane position="-4 5 -4.7" rotation="90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
+    
+          <!-- Sanat Eserleri -->
+          <!--
+          <a-entity class="clickable" position="-2 2 -4.6" animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter" animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave" data-title="Eser 1 Bilgisi" data-description="Bir zamanlar karanlikta kaybolmus bir yolcu,<br> ay isigi altinda gizemli bir patikayi bulur. Sokak lambalarinin altin sarisi isiginda adimlarini yavaslatir. Yaninda, bugdayin altin rengi basaklari ruzgarla dans ederken, patikanin iki yaninda siralanmis lambalarin sicak isigi altinda hafifce kimildar. Gokyuzunde ise, gecenin karanligini yirtarcasina yukselen fenerler bir yildiz kaymasi misali usulca suzulur. Yolcu, bu buyulu yolda ilerlerken, fenerlerin her birinin altindan gecip, kendini farkli bir dunyanin sakinine donusturen bir seruvene adim atar.">
+              <a-image id="targetImage" src="1.jpg" height="2" width="3" renderOrder="0" class="production-image"></a-image>
+          </a-entity>
+          <a-entity class="clickable" position="2 2 -4.6" animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter" animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave" data-title="Eser 2 Bilgisi" data-description="Daglarin golgesinde sakli kalmis gizli bir vadi vardir. Burasi, huzunle karisik bir guzelligi barindiran, yagmur damlalarinin nehirlerini besledigi bir cennettir. Kiraz ciceklerinin pembe yapraklari, yagmurla birlikte gole dusurken, suyun yuzeyi hafifce titrer. Gokyuzunden suzulen ince yagmur cizgileri, zamanin yavasladigi hissini verir. Bir sandalin kiyiya bagli oldugu, gol kiyisindaki kucuk bir iskelede, bir yalniz fener, kararli bir bekci gibi, isigini suya yansitir. Vadinin icindeki sessizlik, yalnizca ara sira uguldayan ruzgar ve dusen yagmur damlalarinin ritmik sesiyle bolunur. Bu resimdeki hikaye, doganin ve zamanin ic ice gectigi, huzurlu bir anin oykusunu anlatir.">
+              <a-image id="targetImage" src="2.png" height="2" width="3" renderOrder="0" class="production-image"></a-image>
+          </a-entity>
+          -->
+          <a-entity class="clickable" position="-1.25 2.45 -9.2" animation__scale="property: scale; to: 1.1 1.05 1.1; dur: 200; startEvents: mouseenter" animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave" animation__position="property: position; to: -1.25 2.45 -9.13; dur: 200; startEvents: mouseenter" animation__position_reverse="property: position; to: -1.25 2.45 -9.2; dur: 200; startEvents: mouseleave" data-title="Işıkların Dansı" data-description="Yolun iki yanında sıralanan lambalar, geceyi yıldızlarla aydınlatıyor gibi birer parıltı saçıyor. Bu huzurlu yolda yürürken, zamanın yavaşladığını ve her adımda doğanın sakinleştirici sesini duyduğunuzu hissediyorsunuz. Etrafta uçuşan ışıklar, küçük ateş böcekleri gibi, gecenin sessizliğinde bir dans sergiliyor. Bu sakin ve büyülü yolu izleyerek, gerçekliğin ötesindeki sırları keşfetmek için bir davetiye gibi duruyor.">
+            <a-image id="targetImage" src="1.jpg" height="1.9" width="1.4" renderOrder="0" class="production-image"></a-image>
+          </a-entity>
+          <a-entity class="clickable" position="-3.75 2.45 -9.2" animation__scale="property: scale; to: 1.1 1.05 1.1; dur: 200; startEvents: mouseenter" animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave" animation__position="property: position; to: -3.75 2.45 -9.13; dur: 200; startEvents: mouseenter" animation__position_reverse="property: position; to: -3.75 2.45 -9.2; dur: 200; startEvents: mouseleave" data-title="Gizemli Göl Kenarı" data-description="Gecenin koyu mavisinde, yağmurun hafif dokunuşları göl yüzeyinde halkalar oluşturuyor. Çevreyi saran dağlar, gizemli bir örtü gibi, gölün sessizliğini koruyor. Kiraz ağaçlarının pembe çiçekleri, yağmurun nazik ritminde sallanıyor. Göl kenarındaki tek lamba, huzurlu bir yalnızlığın simgesi olarak yanıp sönüyor. Bu görüntü, hikayesi henüz anlatılmamış eski bir efsaneyi andırıyor; doğanın ve zamanın ötesinde bir anı yakalıyor.">
+            <a-image id="targetImage" src="2.png" height="1.9" width="1.4" renderOrder="0" class="production-image"></a-image>
+          </a-entity>
+          <a-entity class="clickable" position="-6.25 2.45 -9.2" animation__scale="property: scale; to: 1.1 1.05 1.1; dur: 200; startEvents: mouseenter" animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave" animation__position="property: position; to: -6.25 2.45 -9.13; dur: 200; startEvents: mouseenter" animation__position_reverse="property: position; to: -6.25 2.45 -9.2; dur: 200; startEvents: mouseleave" data-title="Neon Şehir Sinfonisi" data-description="Gecenin örtüsünü yırtarak parlayan neon tabelalar, gökdelenlerin göğe doğru uzanan gölgesinde kayboluyor. İnsanların seli, modern zamanların karmaşasında birleşiyor ve şehrin kalp atışını oluşturuyor. Bu şehir, asla uyumayan bir canavar gibi, ışıklarıyla gecenin karanlığını aydınlatıyor ve geçmişle geleceğin, gelenekle yeniliğin iç içe geçtiği bir dünya sunuyor. Her adımında farklı bir hikaye barındıran bu caddeler, bilinmezliğe doğru sizi çeken birer yol oluyor.">
+            <a-image id="targetImage" src="3.png" height="1.9" width="1.4" renderOrder="0" class="production-image"></a-image>
+          </a-entity>
+
+          <a-entity class="clickable" position="-8.35 2.45 -7.1" rotation="0 90 0" animation__scale="property: scale; to: 1.1 1.05 1.1; dur: 200; startEvents: mouseenter" animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave" animation__position="property: position; to: -8.28 2.45 -7.1; dur: 200; startEvents: mouseenter" animation__position_reverse="property: position; to: -8.35 2.45 -7.1; dur: 200; startEvents: mouseleave" data-title="Dünyanın Ötesine Bakış" data-description="Dünya'nın yuvarlaklığı içinde bir yolculuğa çıkın. Etrafınızı saran bu bulut denizinde, göz alabildiğine uzanan bu beyaz ve mavi cümbüşün ortasında, küçük bir nokta olduğunuzu hissedin. Merkeze doğru ilerledikçe, bulutların arasından sızan güneşin sıcaklığını yüzünüzde hissedin. Bu görüntü, dünyanın ötesindeki muhteşem manzaraları keşfetme hayalinizi gerçekleştiren bir portal gibi; hem gerçek dünyadan bir kaçış noktası hem de gözlerinizi yıldızlara diken bir teleskop görevi görüyor.">
+            <a-image id="targetImage" src="skybox2.png" height="1.9" width="1.4" renderOrder="0" class="production-image"></a-image>
+          </a-entity>
+          <a-entity class="clickable" position="-8.35 2.45 -4.6" rotation="0 90 0" animation__scale="property: scale; to: 1.1 1.05 1.1; dur: 200; startEvents: mouseenter" animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave" animation__position="property: position; to: -8.28 2.45 -4.6; dur: 200; startEvents: mouseenter" animation__position_reverse="property: position; to: -8.35 2.45 -4.6; dur: 200; startEvents: mouseleave" data-title="Gökyüzüne Açılan Kapı" data-description="Bir dağın zirvesinde durduğunuzu hayal edin. Etrafınız, kabarık bulutların dans ettiği gökyüzünün maviliğiyle çevrili. Bulutlar, bir ressamın fırçasıyla çizilmiş gibi, gökyüzünde mükemmel bir uyum içinde hareket ediyor. Ortada, güneşin ilk ışıkları, aralarından süzülerek size ulaşıyor. Bu manzara, ruhunuzu okşayan bir melodi gibi; huzur veren, dinginleştiren ve kendinizle baş başa kalmak için sizi davet eden bir kapı açıyor.">
+            <a-image id="targetImage" src="skybox.png" height="1.9" width="1.4" renderOrder="0" class="production-image"></a-image>
+          </a-entity>
+          <a-entity class="clickable" position="-8.35 2.45 -2.1" rotation="0 90 0" animation__scale="property: scale; to: 1.1 1.05 1.1; dur: 200; startEvents: mouseenter" animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave" animation__position="property: position; to: -8.28 2.45 -2.1; dur: 200; startEvents: mouseenter" animation__position_reverse="property: position; to: -8.35 2.45 -2.1; dur: 200; startEvents: mouseleave" data-title="Uzayın Derinliklerinde Bir Yolculuk" data-description="Gözlerinizi yavaşça açın ve karşınızda uzayın sonsuz derinliklerini görün. Bir an için düşünün; içinde bulunduğunuz kapsül, Samanyolu'nun merkezine doğru süzülüyor. Yıldızlar, göz kamaştırıcı bir ışık şöleni sunuyor, sanki her biri size evrenin gizemlerini fısıldıyor. Bu görüntü, bir yıldız tozunun hikayesini anlatıyor gibi: Milyarlarca yıldır var olan ve hâlâ keşfedilmeyi bekleyen sonsuz olasılıkların hikayesini. İçinde bulunduğunuz bu kozmik döngü, evrenin büyüklüğünün ve güzelliğinin sadece bir parçası.">
+            <a-image id="targetImage" src="skybox3.png" height="1.9" width="1.4" renderOrder="0" class="production-image"></a-image>
+          </a-entity>
+
+
+
+      <!-- Dönen karmaşık yapı -->
+      <a-entity position="-3.7 1.75 -7.15" scale="0.3 0.3 0.3" animation="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear">
+        <!-- Ana küp -->
+        <a-box position="0 0 0" color="#5DD4EA"></a-box>
+
+        <!-- Küpler -->
+        <a-box position="1 0 0" color="#5DD4EA"></a-box>
+        <a-box position="-1 0 0" color="#5DD4EA"></a-box>
+
+        <!-- Küreler -->
+        <a-sphere position="1 1 0" radius="0.5" color="#EF2D5E"></a-sphere>
+        <a-sphere position="-1 1 0" radius="0.5" color="#EF2D5E"></a-sphere>
+
+        <a-box position="0 -1.25 0" rotation="45 0 45" radius="0.75" color="#FFC65D"></a-box>
+      </a-entity>
+
+      <a-entity
+        id="model"
+        gltf-model="#earth"
+        position="-3.75 1.15 -2.25"
+        scale="0.525 0.525 0.525"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 40000; easing: linear">
+      </a-entity>
+      <a-entity
+        id="model"
+        gltf-model="#rhetorician"
+        position="-3.7 1.15 -3.65"
+        scale="0.25 0.25 0.25" 
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear">
+      </a-entity>
+      <a-entity
+        id="model"
+        gltf-model="#snowman"
+        position="-3.7 1.15 -5.65"
+        scale="0.15 0.15 0.15" 
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear">
+      </a-entity>
+
+      <a-entity
+        id="model"
+        gltf-model="#barSignBoard"
+        position="0 4.15 -5.65"
+        scale="0.02 0.02 0.02" 
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 5000; easing: linear">
+      </a-entity>
+
+          <!-- Işıklandırma -->
+          <a-light type="ambient" color="#445451"></a-light>
+          <a-light type="point" intensity="0.5" position="2 4 4"></a-light>
+        </a-scene>
+        <!-- Pop-up Ekranı -->
+        <div id="popup" class="popup" style="display:none;" onclick="closePopup()">
+            <!-- Pop-up içeriği -->
+            <div class="popup-container" onclick="event.stopPropagation();">
+              <img id="popup-image2" src="" style="width:100%; height:auto;">
+              <h1 id="popup-title2">Başlık</h1>
+              <p id="popup-description2">Açıklama</p>
+              <button onclick="viewArtPage()">Ürüne Git</button>
+            </div>
+        </div>
+      </section>
+      <button id="toggle-aside"><</button>
+
+      <aside id="side-menu">
+        <!-- Dosya yükleme bölümü -->
+        <div id="file-drop-area">
+          <input type="file" id="file-input" multiple accept="image/*" hidden />
+          <label for="file-input" id="file-drop-label">Drop File</label>
+        </div>
+        <!-- Görüntü galerisi -->
+        <div id="image-gallery">
+          <!-- JavaScript ile dinamik olarak doldurulacak -->
+        </div>
+
+
+        <!-- Select Box Ekleme -->
+        <div id="image-selector-container">
+          <label for="image-selector">Choose an Image:</label>
+          <select id="image-selector">
+            <option selected disabled>***Bir Çerçeve Seçin</option>
+            <!-- JavaScript ile doldurulacak -->
+          </select>
+        </div>
+
+        <!-- Seçilen Görseli Gösterme -->
+        <div id="selected-image-container">
+          <img id="selected-image" src="" alt="Selected Image" style="max-width: 100%;">
+        </div>
+        <!-- Başlık ve Açıklama İçin Giriş Kutuları -->
+        <div id="entity-properties">
+          <label for="entity-title">Title:</label>
+          <input type="text" id="entity-title">
+          
+          <label for="entity-description">Description:</label>
+          <div id="quill-editor"></div>
+          <button id="update-entity">Update Entity</button>
+        </div>
+
+      </aside>
+      
+      
+    </main>
+    <footer>© 2023 Deeplay Creative Studio. Tüm hakları saklıdır.</footer>
+    <div id="dynamicContent"></div>
+
+    <script>
+      // Resim tıklama olayı yeni
+      AFRAME.registerComponent('detect-close', {
+        schema: {
+          target: {type: 'selector'},
+          minDistance: {type: 'number'}
+        },
+        init: function () {
+          // Tıklama olayını dinle
+          this.el.sceneEl.addEventListener('click', () => {
+            var targetPosition = this.data.target.object3D.position;
+            var currentPosition = this.el.object3D.position;
+            var distance = targetPosition.distanceTo(currentPosition);
+    
+            if (distance < this.data.minDistance) {
+              // console.log("ETKİLEŞİMDE!");
+            }
+            else {
+              // console.log("AAAAAĞĞAĞAĞAĞAĞAĞAĞĞAaA;");
+            }
+          });
+        }
+      });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.clickable-text').forEach(item => {
+          item.addEventListener('click', function () {
+            // 'open-in-new-tab' özelliğini al ve yeni sekmede aç
+            var url = this.getAttribute('open-in-new-tab');
+            if (url) {
+              window.open(url, '_blank');
+            }
+          });
+        });
+      });
+      // Tıklanabilir öğeler için Event Listener ekleme
+      document.querySelectorAll('.clickable').forEach(item => {
+        item.addEventListener('click', function () {
+          var dataTitle = this.getAttribute('data-title');
+          var dataDescription = this.getAttribute('data-description');
+          var clickedImageSrc = this.querySelector('a-image').getAttribute('src');
+
+          openPopup(dataTitle,dataDescription,clickedImageSrc); // Objeye tıklandığında pop-up'ı aç
+        });
+      });
+    </script>
+    <script>
+      // POPUP SCRIPT'I
+
+      function matchPopupSize(dataTitle,dataDescription,clickedImageSrc) {
+        var sceneEl = document.querySelector('a-scene');
+        var sceneRect = sceneEl.getBoundingClientRect(); // Sahnenin konum ve boyut bilgilerini alır
+
+        var popup = document.getElementById('popup');
+        popup.style.width = sceneRect.width + 'px';
+        popup.style.height = sceneRect.height + 'px';
+        popup.style.top = sceneRect.top + 'px';
+        popup.style.left = sceneRect.left + 'px';
+
+        // console.log(dataTitle);
+        // console.log(dataDescription);
+        // console.log(clickedImageSrc);
+
+        // Başlık ve açıklamayı ayarlama
+        document.getElementById('popup-title2').innerHTML = dataTitle;
+        document.getElementById('popup-description2').innerHTML = dataDescription;
+        document.getElementById('popup-image2').src = clickedImageSrc;
+      }
+
+      // Pop-up'ı açma fonksiyonu
+      function openPopup(dataTitle,dataDescription,clickedImageSrc) {
+        matchPopupSize(dataTitle,dataDescription,clickedImageSrc);
+        document.getElementById('popup').style.display = 'flex';
+      }
+
+      // Pop-up'ı kapatma fonksiyonu
+      function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+      }
+
+      // Pop-up'ı kapatma fonksiyonu
+      function viewArtPage() {
+        var baseUrl = window.location.origin + '/WebShowroom/';
+        var imgSrc = document.getElementById('popup-image2').src;
+
+        // baseUrl'i çıkartarak sadece dosya adını alın
+        var fileName = imgSrc.replace(baseUrl, '');
+
+        var link = "background/index.html?" + fileName;
+        window.open(link, '_blank');
+      }
+      // Pop-up'ın içindeki içeriğe tıklandığında kapanmasını önleme
+      document.getElementById('popup-container').addEventListener('click', function(event) {
+        event.stopPropagation();
+      });
+    </script>
+    <script>
+      document.getElementById('toggle-aside').addEventListener('click', function() {
+          var sideMenu = document.getElementById('side-menu');
+          var mainContent = document.querySelector('main');
+          var toggleButton = document.getElementById('toggle-aside');
+          if (sideMenu.style.right === '0px') {
+              sideMenu.style.right = '-280px'; // Menüyü kapat
+              mainContent.style.marginRight = '0'; // Ana içeriği orijinal konumuna geri getir
+              toggleButton.style.right = '0'; // Düğmeyi orijinal konumuna geri getir
+              this.textContent = '<'; // Ok işaretini sağa çevir
+          } else {
+              sideMenu.style.right = '0'; // Menüyü aç
+              mainContent.style.marginRight = '280px'; // Ana içeriği sağa kaydır
+              toggleButton.style.right = '280px'; // Düğmeyi menü ile birlikte kaydır
+              this.textContent = '>'; // Ok işaretini sola çevir
+          }
+      });
+    </script>
+    <script>
+
+      // Dosya yükleme işleyicisi
+      function handleFileSelect(event) {
+          var files = event.target.files; // Seçilen dosyalar
+          var gallery = document.getElementById('image-gallery');
+          gallery.innerHTML = ''; // Önceki görüntüleri temizle
+
+          // Her dosya için önizleme oluştur
+          for (var i = 0, f; f = files[i]; i++) {
+              // Yalnızca resim dosyaları
+              if (!f.type.match('image.*')) continue;
+
+              var reader = new FileReader();
+
+              reader.onload = (function(theFile) {
+                  return function(e) {
+                      // İmaj elementi oluştur
+                      var imgElement = document.createElement('img');
+                      imgElement.src = e.target.result;
+                      // Galeriye imajı ekle
+                      gallery.appendChild(imgElement);
+                  };
+              })(f);
+
+              // Dosyaları oku
+              reader.readAsDataURL(f);
+          }
+      }
+      // Event listeners
+      document.getElementById('file-input').addEventListener('change', handleFileSelect, false);
+
+      document.addEventListener('DOMContentLoaded', function() {
+        var select = document.getElementById('image-selector');
+        var entities = document.querySelectorAll('.clickable');
+        var titleInput = document.getElementById('entity-title');
+        var quill = new Quill('#quill-editor', {
+          theme: 'snow'
+        });
+        var updateButton = document.getElementById('update-entity');
+
+        // 'clickable' sınıfına sahip tüm a-entity öğelerini dolaş ve select box'ı doldur
+        entities.forEach(function(entity, index) {
+          var option = document.createElement('option');
+          option.value = index;
+          option.textContent = entity.dataset.title || 'Image ' + index;
+          select.appendChild(option);
+        });
+
+        // Select değiştiğinde çalışacak fonksiyon
+        select.onchange = function() {
+          var selectedEntity = entities[this.value];
+          var imageSrc = selectedEntity.querySelector('a-image').getAttribute('src');
+          document.getElementById('selected-image').src = imageSrc;
+        };
+
+        // Sürüklenen görselleri tanımla
+        var images = document.querySelectorAll('#image-gallery img');
+        images.forEach(function(img) {
+          img.draggable = true;
+          img.addEventListener('dragstart', function(e) {
+            e.dataTransfer.setData('text', e.target.src); // Sürüklenen görselin src'sini transfer verisi olarak ayarla
+          });
+        });
+
+        // Bırakma alanını tanımla
+        var selectedImageContainer = document.getElementById('selected-image-container');
+        selectedImageContainer.addEventListener('dragover', function(e) {
+          e.preventDefault(); // Varsayılan davranışı engelle
+        });
+
+        selectedImageContainer.addEventListener('drop', function(e) {
+          e.preventDefault();
+          var src = e.dataTransfer.getData('text');
+          var selectedImage = document.getElementById('selected-image');
+          selectedImage.src = src; // Seçili görselin src'sini güncelle
+
+          // Aynı zamanda, seçili a-image öğesinin src'sini de güncelle
+          var selectedEntity = entities[document.getElementById('image-selector').value];
+          selectedEntity.querySelector('a-image').setAttribute('src', src);
+        });
+        
+        // Update butonuna basıldığında çalışacak fonksiyon
+        updateButton.addEventListener('click', function() {
+          var selectedEntity = entities[select.value];
+          selectedEntity.dataset.title = titleInput.value;
+          selectedEntity.dataset.description = quill.root.innerHTML;
+        });
+
+        // Select değiştiğinde çalışacak fonksiyonu güncelle
+        select.onchange = function() {
+          var selectedEntity = entities[this.value];
+          var imageSrc = selectedEntity.querySelector('a-image').getAttribute('src');
+          document.getElementById('selected-image').src = imageSrc;
+
+          // Giriş kutularını güncelle
+          titleInput.value = selectedEntity.dataset.title;
+          quill.root.innerHTML = selectedEntity.dataset.description;
+        };
+      });
+    </script>
+  </body>
+</html>

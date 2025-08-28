@@ -1,0 +1,839 @@
+@font-face {
+    font-family: orbitron;
+    font-style: normal;
+    font-weight: 400;
+    src: local('Orbitron'), url(https://fonts.cdnfonts.com/s/29902/Orbitron[wght].woff) format('woff');
+}
+@font-face {
+    font-family: orbitron;
+    font-style: normal;
+    font-weight: 400;
+    src: local('Orbitron'), url(https://fonts.cdnfonts.com/s/29902/Orbitron[wght].woff) format('woff');
+}
+* {
+    font-family: 'Orbitron';
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: 'Orbitron';
+    background: linear-gradient(45deg, #310f33, #4a154b); /* Siyah ve mor arasında bir gradient */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body {
+    font-family: 'Orbitron'; /* Kullandığınız fonta göre değiştirilebilir */
+    background: linear-gradient(45deg, #2a2a2a, #4a4a4a, #2a2a2a, #1a1a1a);
+}
+
+/* header */
+
+.header {
+    background: rgb(96, 27, 156);
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+  }
+  
+  .header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background: rgb(96, 27, 156);
+  }
+  
+  .header li a {
+    display: block;
+    color: white;
+    padding: 20px 20px;
+    text-decoration: none;
+  }
+  
+  .header li a:hover,
+  .header .menu-btn:hover {
+    color: rgb(96, 27, 156);
+    background-color: #f4f4f4;
+  }
+  .header li .header-button:hover{
+    color: rgb(96, 27, 156);
+    background-color: rgb(96, 27, 156)!important;
+  }
+  
+  /* menu */
+  
+  .header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+  }
+  
+  /* menu icon */
+  
+  .header .menu-icon {
+    width: auto;
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    padding: 28px 20px;
+    position: relative;
+    user-select: none;
+  }
+  
+  .header .menu-icon .navicon {
+    background: #fff;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background .2s ease-out;
+    width: 18px;
+  }
+  
+  .header .menu-icon .navicon:before,
+  .header .menu-icon .navicon:after {
+    background: #fff;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+  }
+  
+  .header .menu-icon .navicon:before {
+    top: 5px;
+  }
+  
+  .header .menu-icon .navicon:after {
+    top: -5px;
+  }
+  
+  /* menu btn */
+  
+  .header .menu-btn {
+    display: none;
+  }
+  
+  .header .menu-btn:checked ~ .menu {
+    max-height: 100%;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon {
+    background: transparent;
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+  
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
+  .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+    top: 0;
+  }
+
+    /* 48em = 768px */
+
+    @media (min-width:48em) and (max-width: 72em) {
+        .header li {
+            float: left;
+        }
+        .header li a {
+            padding: 20px 10px!important;
+            font-size: 0.7em;
+        }
+        .header .menu {
+            clear: none;
+            float: right;
+            max-height: none;
+        }
+        .header .menu-icon {
+            display: none;
+        }
+        .logo {
+            margin-left: 3em;
+            height: 3em; /* Logo yüksekliğini istediğiniz gibi ayarlayabilirsiniz */
+        }
+        .logo-text {
+            margin-left: 2em;
+            height: 1.45em!important; /* Logo yüksekliğini istediğiniz gibi ayarlayabilirsiniz */
+        }
+        .logo-text-long {
+            margin-left: 2em;
+            height: 3em!important; /* Logo yüksekliğini istediğiniz gibi ayarlayabilirsiniz */
+        }
+    }
+    
+  /* 48em = 768px */
+  
+  @media (min-width: 48em) {
+    .header li {
+      float: left;
+    }
+    .header li a {
+      padding: 20px 30px;
+    }
+    .header .menu {
+      clear: none;
+      float: right;
+      max-height: none;
+    }
+    .header .menu-icon {
+      display: none;
+    }
+
+  }
+  
+nav {
+    display: flex!important;
+    gap: 10px;
+    align-items: right;
+    justify-content: right; /* Bu satır linkleri yatay olarak ortalar */
+    flex-grow: 1; /* Bu satır, nav öğesinin mümkün olan en geniş alana yayılmasını sağlar */
+}
+
+nav a {
+    display: inline-block;  /* Eğer eleman blok seviyesinde değilse */
+    margin: 0.65em;
+    color: white;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    font-weight: bolder;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    /*box-shadow: 0 0 10px 4px rgba(128, 0, 128, 0.5);
+    background: rgba(128, 0, 128, 0.5);*/
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.468), 0 0 12px rgba(255, 255, 255, 0.468), 0 0 18px rgba(255, 255, 255, 0.468); /* Neon ışık etkisi için gölge */
+}
+
+p, i, strong, u {
+    font-family: Helvetica;
+}
+
+.logo {
+    margin-left: 3em;
+    margin-top:0.2em;
+    float:left;
+    height: 3em; /* Logo yüksekliğini istediğiniz gibi ayarlayabilirsiniz */
+}
+.logo-text {
+    margin-left: 1em;
+    margin-top: 1em;
+    float:left;
+    height: 2em; /* Logo yüksekliğini istediğiniz gibi ayarlayabilirsiniz */
+}
+.logo-text-long {
+    margin-left: 0.5em;
+    margin-top: 0.5em;
+    float:left;
+    height: 3em; /* Logo yüksekliğini istediğiniz gibi ayarlayabilirsiniz */
+}
+.cta-button {
+    background-color: rgb(255,255,255);
+    color: rgb(96, 27, 156);
+    font-size: 17px;
+    font-weight: bold;
+    border: 1px solid rgb(96, 27, 156)!important;
+    border-radius: 4px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    transition: background-color .2s, color .2s, text-shadow .2s;
+}
+.cta-button:hover{
+    background-color: rgb(96, 27, 156);
+    color: rgb(205,205,205);
+    text-shadow: 0 0 6px rgba(255,255,255, 0.468), 0 0 12px rgba(255,255,255, 0.468), 0 0 18px rgba(255,255,255, 0.468); /* Neon ışık etkisi için gölge */
+    border: 1px solid rgb(205,205,205)!important;
+}
+section {
+    padding: 0 0;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(10px);
+    width: 100%; /* Yatay düzlemde tamamını kaplar */
+    height: 100vh; /* Ekranın tam yüksekliği */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+/*
+footer {
+    padding: 100px 0;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background:  radial-gradient(ellipse at bottom, #32143f 0%, #0c000d 100%);
+}
+*/
+.vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.block {
+    background: rgba(255, 255, 255, 0.1); /* Yarı transparan arkaplan */
+    backdrop-filter: blur(5px); /* Blur efekti */
+    padding: 10px;
+    border-radius: 7px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* Beyaz bir gölge efekti */
+    backdrop-filter: blur(5px);
+    width: 250px;  /* Sabit bir genişlik */
+    height: 150px; /* Sabit bir yükseklik */
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.background1 {
+    background: linear-gradient(45deg, #2a2a2a, #800080);
+}
+
+.background2 {
+    background: linear-gradient(to top right, #1a1a1a, #4a4a4a, #800080, #4a4a4a);
+}
+
+.block-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+}
+
+.vertical .block-container {
+    flex-direction: column;
+    align-items: center; /* Alt alta olan blokları merkeze hizalar */
+}
+
+.horizontal .block-container {
+    flex-direction: row;
+    align-items: stretch; /* Yan yana olan blokları aynı yükseklikte tutar */
+}
+
+#home{
+    margin-top:-1em;
+}
+
+#contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Eğer bölümün tam ekran boyutunda olmasını istiyorsanız ekleyin */
+    padding-top:0px;
+}
+
+#contact h2 {
+    font-size: 48px; /* Font boyutunu daha büyük yapalım. */
+    margin-top: 0px;
+    margin-bottom: 32px; /* Başlık ile diğer içerik arasındaki boşluğu artırabilirsiniz. */
+    text-align: center;
+    color: #f7f7f7;
+}
+
+.form-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* İki sütun oluşturur */
+    gap: 20px; /* İçerikler arasındaki boşluk */
+    max-width: 800px; /* Kutunun maksimum genişliği */
+    width: 100%; /* Kutunun genişliği */
+    background: rgba(96, 27, 156, 0.3); /* Yarı transparan arkaplan */
+    backdrop-filter: blur(5px); /* Blur efekti */
+    border-radius: 15px; /* Yuvarlatılmış köşeler */
+    padding: 30px;
+    box-shadow: 0 0 27px rgba(218, 218, 218, 0.26); /* Beyaz bir gölge efekti */
+}
+
+#description {
+    grid-column: span 2; /* İki sütunu kaplar */
+}
+
+.description-block {
+    grid-column: span 2; /* İki sütunu kaplar */
+    /* Bu blok için ekstra marj eklemeniz gerekmiyor. */
+}
+
+button {
+    grid-column: span 2;
+    cursor: pointer;
+    background-color: #601b9c; /* Mor tonu */
+    border: none;
+    border-radius: 7px; /* Yuvarlatılmış köşeler */
+    color: #fff;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.468), 0 0 12px rgba(255, 255, 255, 0.468), 0 0 18px rgba(255, 255, 255, 0.468); /* Neon ışık etkisi için gölge */    
+    padding: 10px 15px;
+    transition: background-color 0.3s ease; /* Renk geçişi animasyonu */
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #713aa2; /* Butona tıklandığında mor rengin daha açık bir tonu */
+}
+
+label{
+    width: 100%; /* Bütün genişliği kaplar */
+    color: #fff;
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.468), 0 0 12px rgba(255, 255, 255, 0.468), 0 0 18px rgba(255, 255, 255, 0.468); /* Neon ışık etkisi için gölge */
+}
+
+input{
+    margin-top: 5px;
+    padding: 10px;
+    border-radius: 7px;
+    width: 90%;
+    border: none;
+    background: rgba(255, 255, 255, 0.1); /* Yarı transparan arkaplan */
+    color: #FFF;
+    backdrop-filter: blur(5px); /* Blur efekti */
+    box-shadow: 0 0 15px rgba(218, 218, 218, 0.26); /* Beyaz gölge efekti */
+}
+
+textarea {
+    margin-top: 5px;
+    padding: 10px;
+    padding-bottom: 35px;
+    border-radius: 7px;
+    width: calc(90% + 40px); 
+    border: none;
+    background: rgba(255, 255, 255, 0.1); /* Yarı transparan arkaplan */
+    color: #FFF;
+    backdrop-filter: blur(5px); /* Blur efekti */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3); /* Beyaz gölge efekti */
+    resize: none!important;
+}
+
+/* Pricing Section Stili */
+
+#pricing {
+    display: flex;
+    justify-content: center;
+    padding: 0 0 50px 0;
+    background: radial-gradient(ellipse at bottom, #32143f 0%, #0c000d 100%);
+}
+
+.pricing-block {
+    display: flex; /* Flexbox'u etkinleştir */
+    flex-direction: column; /* Çocukları dikey sırala */
+    /* Diğer stiller */
+    flex: 1;
+    padding: 2em 100px; /* İki padding değeri tanımlandığı için, son tanımlanan geçerli olur. */
+    background-color: rgba(0,0,0,0.3)!important;
+    box-shadow: 0 0 15px rgba(50, 2, 79, 0.6);
+    margin: 30px;
+    text-align: center; 
+    min-height: 80%; 
+    align-items: center; 
+    flex-grow:1;
+    flex-basis:0;
+    justify-content: space-between; 
+    transition: box-shadow 0.5s, background-color 0.65s;
+}
+.pricing-block:hover {
+    box-shadow: 0 0 45px rgba(0, 0, 0, 0.6);
+    background-color: rgba(0,0,0,0.6)!important;
+
+}
+
+
+.pricing-block h3 {
+    white-space: nowrap;
+    margin-bottom: 2em;
+    z-index:2;
+}
+
+
+.pricing-block .price {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.pricing-block .duration {
+    margin-bottom: 20px;
+}
+
+.pricing-block ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 4em;
+}
+
+.pricing-block li {
+    margin-bottom: 1em;
+}
+
+.pricing-block button {
+    padding: .5em 2em;
+    cursor: pointer;
+    align-self: center; /* Butonu yatay olarak ortalar */
+    margin-bottom: 1em;
+    /* Diğer buton stilleri */
+}
+
+.popUp {
+    z-index: 30;
+    display: none; /* Modal başlangıçta gizlenir */
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.3);
+    backdrop-filter: blur(3px);
+    justify-content: center;
+    align-items: center;
+}
+
+.popUp-content {
+    background-color: #fefefe;
+    margin: 3% auto;
+    padding: 1%;
+    border: 1px solid #888;
+    width: 70%;
+    height: 90%;
+    position: relative; /* Ekledik */
+    overflow: hidden; /* İçerik dışına taşan kısımları gizle */
+}
+
+.popUp-content img {
+    max-width: 100%; 
+    max-height: 100%;
+    display: block;
+    margin: auto;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+#whoarewe p {
+    margin: 35px 0px;
+}
+.mx-15 {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.my-5 {
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.text-right {
+    text-align: right;
+}
+.text-left {
+    text-align: left;
+}
+.italic {
+    font-style: italic;
+}
+.mr-25 {
+    margin-right: 25%!important;
+}
+.ml-25 {
+    margin-left: 25%!important;
+}
+#features{
+    background: radial-gradient(ellipse at bottom, #32143f 0%, #0c000d 100%);
+    height: 140vh;
+}
+#whoarewe{
+    background: radial-gradient(ellipse at top, #32143f 0%, #0c000d 100%);
+}
+#team{
+    background: radial-gradient(ellipse at bottom, #32143f 0%, #0c000d 100%);
+}
+#contact{
+    background: radial-gradient(ellipse at top, #32143f 0%, #0c000d 100%);
+}
+#phases{
+    background: radial-gradient(ellipse at bottom, #32143f 0%, #0c000d 100%);
+}
+#faq{
+    display: flex;
+    background: radial-gradient(ellipse at top, #32143f 0%, #0c000d 100%);
+    justify-content: center;
+    align-items: center;
+}
+#demos{
+    background: radial-gradient(ellipse at bottom, #32143f 0%, #0c000d 100%);
+}
+
+/* Mobil cihazlar için özelleştirmeler */
+@media (max-width: 768px) {
+    nav {
+        margin-top: 1em;
+    }
+
+    .logo {
+        margin-left: 3em;
+        height: 3em; /* Logo yüksekliğini istediğiniz gibi ayarlayabilirsiniz */
+    }
+    .logo-text {
+        margin-left: 2em;
+        height: 1.5em; /* Logo yüksekliğini istediğiniz gibi ayarlayabilirsiniz */
+    }
+    .logo-text-long {
+        margin-left: 0.5em;
+        margin-top: 0.5em;
+        height: 2.5em; /* Logo yüksekliğini istediğiniz gibi ayarlayabilirsiniz */
+    }
+
+    .popUp-content {
+        margin-top: 50%;
+        width: 90%; /* Genişlik artırıldı */
+        height: auto; /* Yükseklik azaltıldı */
+        padding: 2%; /* Daha fazla padding */
+    }
+    
+    .close {
+        font-size: 20px; /* Küçültülmüş kapatma ikonu */
+    }
+    
+    #home .flex-container{
+        display:none;
+    }
+
+    #home .owl-carousel{
+        display:block;
+    }
+
+    #whoarewe p {
+        font-size: 12px;
+        margin: 35px 0px;
+
+    }
+
+    #features {
+        height: 80vh;
+    }
+    #team {
+        height: 100vh;
+    }
+    .mr-25 {
+        margin-right: 5%!important;
+    }
+    .ml-25 {
+        margin-left: 5½!important;
+    }
+
+    .title{
+        font-size:24px;
+        color: #fff;
+        text-shadow: 0 0 6px rgba(255, 255, 255, 0.468), 0 0 12px rgba(255, 255, 255, 0.468), 0 0 18px rgba(255, 255, 255, 0.468); /* Neon ışık etkisi için gölge */
+    }
+
+    #contact h2 {
+        font-size: 36px;
+    }
+
+    #contact label {
+        font-size: .75rem;
+        margin-bottom: .15rem;
+        margin-top: .75rem;
+    }
+
+    #contact input {
+        font-size: .75rem;
+        padding: 6px;
+    }
+
+    #contact textarea{
+        font-size: .6rem;
+    }
+        
+    .form-container {
+        display: block;
+        width: 90%;
+    }
+}
+
+
+/* Mobil cihazlar için özelleştirmeler */
+@media (max-height: 512px) {
+    section {
+        width: 100%; /* Yatay düzlemde tamamını kaplar */
+        height: 100vh;
+    }
+    nav {
+        margin-top: 2em;
+    }
+    .cta-button {
+        font-size: 10px;
+        margin-top: 1.5em;
+        margin-right: 1em;
+        margin-left: 1em;
+        padding: 2px 5px;   
+    }
+    .logo {
+        margin-left: 3em;
+        height: 3em; /* Logo yüksekliğini istediğiniz gibi ayarlayabilirsiniz */
+    }
+    .logo-text {
+        margin-left: 2em;
+        height: 1.5em; /* Logo yüksekliğini istediğiniz gibi ayarlayabilirsiniz */
+    }
+    .logo-text-long {
+        margin-left: 2em;
+        height: 1.5em; /* Logo yüksekliğini istediğiniz gibi ayarlayabilirsiniz */
+    }
+
+    .popUp-content {
+        margin-top: 50%;
+        width: 90%; /* Genişlik artırıldı */
+        height: auto; /* Yükseklik azaltıldı */
+        padding: 2%; /* Daha fazla padding */
+    }
+    
+    .close {
+        font-size: 20px; /* Küçültülmüş kapatma ikonu */
+    }
+    
+    #whoarewe {
+        height: 200vh;
+    }
+
+    #whoarewe p {
+        font-size: 12px;
+        margin: 35px 0px;
+    }
+    #team {
+        height: 200vh;
+    }
+    #features {
+        height: 200vh;
+    }
+    #phases {
+        height: 200vh;
+    }
+    .mr-25 {
+        margin-right: 5%!important;
+    }
+    .ml-25 {
+        margin-left: 5½!important;
+    }
+
+    .title{
+        font-size:24px;
+        color: #fff;
+        text-shadow: 0 0 6px rgba(255, 255, 255, 0.468), 0 0 12px rgba(255, 255, 255, 0.468), 0 0 18px rgba(255, 255, 255, 0.468); /* Neon ışık etkisi için gölge */
+    }
+
+    #contact {
+        height: 200vh;
+    }
+
+    #contact h2 {
+        font-size: 36px;
+    }
+
+    #contact label {
+        font-size: .75rem;
+        margin-bottom: .15rem;
+        margin-top: .75rem;
+    }
+
+    #contact input {
+        font-size: .75rem;
+        padding: 6px;
+    }
+
+    #contact textarea{
+        font-size: .6rem;
+    }
+        
+    .form-container {
+        display: block;
+        width: 90%;
+    }
+}
+
+.custom-control {
+    position: absolute;
+    top: 2em;
+    right: 2em;
+    z-index: 999;
+}
+
+.custom-control button {
+    background: deepskyblue;
+    border: 1px solid;
+    color: white;
+    font-size: 1em;
+    padding: 0.2em 0.6em;
+    outline: none;
+}
+
+.custom-control button.active {
+    background: #7cd279;
+}
+
+.owl-carousel {
+    position: relative;
+    height: 100%;
+}
+
+.owl-carousel .owl-slide {
+    width: 100%;
+}
+
+.owl-carousel .owl-slide img {
+    width: 100%;
+    height: auto;
+}
+
+/* OwlCarousel Navigasyon Okları için Stiller */
+.owl-carousel .owl-nav button.owl-prev, 
+.owl-carousel .owl-nav button.owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff; /* Okların arka plan rengi */
+    color: #333; /* Okların rengi */
+    border: none;
+    font-size: 100px!important;
+    padding: 10px; /* Ok boyutu */
+    border-radius: 50%;
+    outline: none;
+}
+
+.owl-carousel .owl-nav button.owl-prev {
+    left: 10px; /* Sol okun konumu */
+}
+
+.owl-carousel .owl-nav button.owl-next {
+    right: 10px; /* Sağ okun konumu */
+}
+
+.owl-carousel .owl-nav button:hover {
+    background: #ddd; /* Okların üzerine gelindiğinde arka plan rengi */
+}
+

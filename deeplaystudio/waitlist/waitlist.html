@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ön Talep</title>
+<link rel="stylesheet" href="index.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="body">
+<div class="form-container">
+  <div id="welcome" class="form-step active">
+    <h2>HEY!</h2>
+    <br>
+    <p>Dijitaldeki yaşamına hazır mısın? Bireysel veya kurumsal fark etmez! Eğlenerek kazanç sağlamak mümkün hale geliyor. <strong>DeepCLUB</strong> ile #hikayeniyazmayabaşla</p>
+    <br>
+    <p class="subtext">E-mail adresini bizimle paylaş, ilk erişim ve çok daha fazlası için bizden haber bekle.</p>
+
+    <button onclick="showSection('explanation')">BAŞLA</button>
+  </div>
+  
+  <div id="explanation" class="form-step" style="display: none;">
+    <p class="explanation-text"><strong>DeepCLUB“Yeni Nesil Yaşam Alanı”:</strong> Yaratıcı endüstri üreticileri için geliştirdiğimiz, oyunlaştırma tabanlı, kullanıcıların işlerini 3D/VR sergileme yapabildikleri, oyun oynayabildikleri, satış yapabildikleri Türkiye’nin alanında ilk sosyal ağı, sanal evrenidir.</p>
+    <br>
+    <p class="explanation-subtext">***Form aracılığıyla toplanan veriler, geliştirdiğimiz ürün ve hizmetlerin arttırılması amacıyla, genel başlıklarla alınmakta olup fikir edinmek içindir. E-posta adresleri dışında, kişi ve kurumları birebir işaret edecek, belirtecek hiçbir veri talep edilmemiştir. Buna karşılık formu dolduran gerçek ve tüzel kişiler, bilgi paylaşımını kabul etmiş sayılır. Deeplay Creative Studio ve proje paydaşları sorumluluk kabul etmez. </p>
+    <!-- Burada ek açıklamalarınız olabilir -->
+    <br>
+    <button onclick="showSection('input')">TALEP ET</button>
+  </div>
+
+  <div id="input" class="form-step" style="display: none;">
+    <h2>E-posta Adresiniz:*</h2>
+    <br>
+    <p class="subtext">*Size ulaşabilmemiz için mail adresinizi doğru girdiğinizden emin olun.</p>
+    <!-- Input fields here -->
+    <br>
+    <form>
+      <input required type="email" placeholder="Email" name="email" id="email">
+      <br>
+      <button type="submit">Gönder</button>
+    </form>
+  </div>
+
+  <div id="thanks" class="form-step" style="display: none;">
+    <h2>Teşekkürler!</h2>
+    <br>
+    <p>Başvurun alındı.</p>
+  </div>
+</div>
+</div>
+<script src="index.min.js"></script>
+<script>
+  document.getElementById("mailform").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData);
+      var form = document.querySelector('form'); // Form seçicinizi buraya yazın
+      var emailInput = form.querySelector('input[type="email"]'); // E-posta input seçicinizi buraya yazın
+      var nextSection = document.getElementById('thanks');
+
+      form.onsubmit = function(event) {
+        // Form gönderme işlemini durdur
+        event.preventDefault();
+
+        // E-posta adresi geçerli mi kontrol et
+        if(emailInput.checkValidity()) {
+          // E-posta adresi geçerli ise formu gönder
+          // Burada form verilerini işleyebilir veya AJAX ile sunucuya gönderebilirsiniz
+          showSection('thanks');
+
+          // Form gönderildikten sonra bir sonraki bölüme geç
+        } else {
+          // E-posta adresi geçerli değilse kullanıcıyı uyar
+          emailInput.focus(); // Kullanıcıyı inputa odakla
+        }
+      };
+
+    
+      const response = true;
+      if (response) {
+          alert('Talep İletildi!');
+          showSection('thanks');
+
+      } else {
+          alert('Bir hata oluştu. Lütfen tekrar deneyin.');
+      }
+  });
+  function showSection(sectionId) {
+    var activeSection = document.querySelector('.form-step.active');
+    var nextSection = document.getElementById(sectionId);
+
+    // Hide the current section by fading it out and scaling up slightly
+    activeSection.style.opacity = '0';
+    activeSection.style.transform = 'scale(0.8)';
+    
+    // Wait for the animation to finish before hiding the current section and showing the next one
+    setTimeout(function() {
+      activeSection.classList.remove('active');
+      nextSection.classList.add('active');
+      
+      // Reset the style after a short delay to make sure it's not visible during the transition
+      setTimeout(function() {
+        activeSection.style.display = 'none';
+        nextSection.style.display = 'flex';
+        nextSection.style.opacity = '1';
+        nextSection.style.transform = 'scale(1)';
+      }, 10); // This delay must be shorter than the CSS transition time
+    }, 500); // This should match the CSS transition time
+  }
+</script>
+<!-- TEST -->
+</body>
+</html>

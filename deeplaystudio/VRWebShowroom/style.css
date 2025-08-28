@@ -1,0 +1,290 @@
+
+/* CSS Stil Tanımlamaları */
+body, html {
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  header, footer {
+    background-color: rgb(96, 27, 156); 
+    color: white;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 0.4em;
+    flex:1;
+  }
+  header {
+    padding:1em;
+  }
+  main {
+    display: flex;
+    flex: 18;
+    transition: margin-right 0.5s; /* Ana içeriğin kayma animasyonu */
+  }
+  
+  #a-scene-container {
+    flex: 5; /* Ana içeriği daha geniş yapar */
+    background-color: #FFFFFF; /* Beyaz renk */
+    text-align: center;
+  }
+  
+  aside {
+    flex: 1; /* Yan içeriği daha dar yapar */
+    background-color: rgb(96, 27, 156); /* Açık sarı renk */
+    text-align: center;
+  }
+  /* Pop-up Stilleri */
+  .popup {
+    position: absolute;
+    background-color: rgba(0,0,0,0.3);
+    backdrop-filter:blur(3px);
+    border: none;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    z-index: 1000; /* A-Frame sahnenizin üzerinde görünmesi için */
+    display: none; /* Başlangıçta gizli */
+    justify-content: center; /* İçeriği yatay olarak merkezler */
+    align-items: center; /* İçeriği dikey olarak merkezler */
+  }
+  .popup-container {
+    position: absolute;
+    background-color: rgba(255,255,255,0.7);
+    top:50%;
+    left:50%;
+    width:60%;
+    height: auto;
+    max-height: 80%; /* Maksimum yükseklik belirtin */
+    overflow-y: auto;  /* Y ekseninde kaydırma etkin */
+    scrollbar-width: none; /* Firefox için kaydırma çubuğunu gizle */
+    border: none;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+    z-index: 1001; /* A-Frame sahnenizin üzerinde görünmesi için */
+    display: block; /* Başlangıçta gizli */
+    justify-content: center; /* İçeriği yatay olarak merkezler */
+    align-items: center; /* İçeriği dikey olarak merkezler */
+    transform: translate(-50%, -50%); /* Bu satır eklenmeli */
+
+  }
+  .popup-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari ve Opera için kaydırma çubuğunu gizle */
+  }
+  .popup-container p {
+    margin: 30px 20px;
+  }
+  .popup-container button {
+    margin: 30px 0px;
+  }
+  #toggle-aside {
+    
+    font-size: 28px; /* Okun boyutunu ayarlayın */
+    font-weight: bolder;
+    line-height: 40px; /* Buton içindeki yükseklik hizalamasını ayarlayın */
+    position: fixed;
+    z-index: 3; /* Menünün önünde olmalı */
+    top: 50%;
+    right: 0; /* Menü kapalıyken düğmenin konumu */
+    width: 40px; /* Düğme genişliği */
+    height: 40px; /* Düğme yüksekliği */
+    border-radius: 50px 0 0 50px; /* Yarım yuvarlak şekil */
+    background-color: rgb(96, 27, 156);
+    color: white;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    line-height: 40px; /* Metni düğme ortasına yerleştirir */
+    transition: right 0.5s; /* Düğmenin kayma animasyonu */
+  }
+
+  #toggle-aside:hover {
+    background-color: #e8e8e8;
+    color: rgb(96, 27, 156);
+  }
+#side-menu {
+  position: fixed;
+  right: -280px;
+  top: 0;
+  width: 250px;
+  background-color: #601b9c;
+  color: white;
+  transition: right 0.5s;
+  padding: 15px;
+  overflow-y: auto;
+  height: 100%;
+  border-left: 3px solid #8b4fb3;
+}
+
+#side-menu #toggle-aside {
+  font-size: 28px;
+  font-weight: bolder;
+  position: fixed;
+  z-index: 3;
+  top: 50%;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px 0 0 50px;
+  background-color: #8b4fb3;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  line-height: 40px;
+  transition: right 0.5s;
+}
+
+#side-menu #toggle-aside:hover {
+  background-color: #a06cd5;
+}
+
+#side-menu #file-drop-area {
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 2px dashed #a06cd5;
+  text-align: center;
+  background-color: #8b4fb3;
+  color: white;
+}
+
+#side-menu #file-drop-label {
+  display: block;
+  cursor: pointer;
+  padding: 10px;
+  background-color: #a06cd5;
+  border-radius: 5px;
+}
+
+#side-menu #image-gallery {
+  display: flex;
+  overflow-x: auto;
+  padding: 20px 5px;
+  background-color: #7c3aa0;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+#side-menu #image-gallery img {
+  max-width: 100px;
+  max-height: 100px;
+  margin-right: 10px;
+  margin-bottom: 0px;
+  object-fit: cover;
+  border: 2px solid #a06cd5;
+  border-radius: 5px;
+}
+
+#side-menu #image-selector-container, #side-menu #entity-properties {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #8b4fb3;
+  border-radius: 5px;
+}
+
+#side-menu label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#side-menu input[type="text"], #side-menu select, #side-menu #quill-editor {
+  width: 100%;
+  padding: 10px 2px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-radius: 4px;
+  border: 1px solid #a06cd5;
+  background-color: white;
+  color: black;
+}
+
+#side-menu .ql-toolbar {
+  padding: 0;
+  padding-bottom: 10px;
+}
+
+#side-menu button {
+  color:#a06cd5;
+}
+#side-menu button {
+  background-color: #a06cd5;
+  color: white;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 4px;
+}
+#side-menu .ql-clean {
+  display: none;
+}
+#side-menu button svg path, #side-menu button svg line, #side-menu button svg rect {
+  stroke: white;
+}
+
+#side-menu button svg:hover path, #side-menu button svg:hover line, #side-menu button svg:hover rect{
+  stroke: #601b9c;
+}
+#side-menu #update-entity {
+  background-color: #a06cd5;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  text-align: center;
+  display: inline-block;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100%;
+}
+
+#side-menu .ql-editor {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+
+
+nav {
+  display: flex!important;
+  gap: 10px;
+  align-items: right;
+  justify-content: right; /* Bu satır linkleri yatay olarak ortalar */
+  flex-grow: 1; /* Bu satır, nav öğesinin mümkün olan en geniş alana yayılmasını sağlar */
+}
+
+nav a {
+  display: inline-block;  /* Eğer eleman blok seviyesinde değilse */
+  margin: 0.75em;
+  color: white;
+  text-decoration: none;
+  transition: 0.2s;
+  justify-content: space-between;
+}
+
+nav a:hover {
+  font-weight: bolder;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.8);
+  /*box-shadow: 0 0 10px 4px rgba(128, 0, 128, 0.5);
+  background: rgba(128, 0, 128, 0.5);*/
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.468), 0 0 12px rgba(255, 255, 255, 0.468), 0 0 18px rgba(255, 255, 255, 0.468); /* Neon ışık etkisi için gölge */
+}
+
+.logo {
+  margin-left: 3em;
+  height: 3em; /* Logo yüksekliğini istediğiniz gibi ayarlayabilirsiniz */
+}
+.logo-text {
+  margin-left: 1em;
+  height: 2em; /* Logo yüksekliğini istediğiniz gibi ayarlayabilirsiniz */
+}
+.logo-text-long {
+  margin-left: 1em;
+  height: 2em; /* Logo yüksekliğini istediğiniz gibi ayarlayabilirsiniz */
+}
+.logo-deepclub {
+  margin-left: 1em;
+  height: 3em; /* Logo yüksekliğini istediğiniz gibi ayarlayabilirsiniz */
+}
+.logo-deepclub-text {
+  margin-left: 7em;
+  height: 1.75em; /* Logo yüksekliğini istediğiniz gibi ayarlayabilirsiniz */
+}

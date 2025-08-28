@@ -1,0 +1,273 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+}
+
+header {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.header-content {
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-title {
+
+}
+
+.header-description {
+    margin-top: 0em;
+    margin-bottom: 2em;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    margin-right: 20px;
+    width: 176px;
+    height: 176px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 1);
+}
+
+.header-text {
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+.social-links a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+
+.social-links a.portfolio:hover {
+    background: #fff;
+    color: #000;
+}
+
+.social-links a.linkedin:hover {
+    background: #0077B5;
+}
+
+.social-links a.github:hover {
+    background: #2f2f2f;
+}
+
+.social-links a.youtube:hover {
+    background: #FF0000;
+}
+
+section {
+    margin: 20px auto;
+    padding: 20px;
+    width: 80%;
+    border-radius: 34px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 20px rgba(255,255,255,1);
+}
+
+h2 {
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 20px;
+}
+
+ul li::before {
+    content: '✔';
+    position: relative;
+    left: -5px;
+    color: #ccc;
+}
+
+ul li strong {
+    display: inline-block;
+    width: 150px;
+}
+
+ul.languages-list {
+    display: flex;
+    margin-left: 1.1em;
+    gap: 15px;
+}
+
+ul.languages-list li {
+    margin: 0;
+    padding: 0;
+}
+
+.job {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.job p {
+    margin: 0;
+}
+
+.job strong {
+    font-size: 1.1em;
+    color: #333;
+}
+
+.job h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.experience-info {
+    margin-left: 1.8em;
+}
+
+.experience-title {
+
+}
+
+.experience-description {
+
+}
+
+.experience-skills {
+    color: #666;
+    font-style: italic;
+}
+
+.education-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.education-item p {
+    margin: 0;
+}
+
+.education-info {
+    padding-left: 10px;
+    margin:0;
+    margin-left: 1.8em;
+}
+
+.education-degree {
+    font-size: 1.2em;
+    margin:0;
+}
+
+.education-institution {
+    font-size: 1em;
+    margin:0;
+}
+
+.education-description {
+    color: #666;
+    margin:0;
+    font-style: italic;
+}
+
+.school, .project {
+    margin-bottom: 20px;
+}
+
+.volunteer-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.volunteer-title {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.volunteer-info {
+    margin-left: 1.8em;
+}
+
+.volunteer-organization {
+    font-size: 1em;
+    margin:0;
+}
+
+.volunteer-description {
+    color: #666;
+    margin:0;
+    font-style: italic;
+}
+
+.certificate-item {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.certificate-item h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.certificate-item p {
+}
+
+.certificate-item i {
+    color: #666;
+}
+
+.project-item {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.project-item p {
+    margin: 0;
+}
+
+.project-item h3 {
+    font-size: 1em;
+    margin: 0;
+}
+
+.project-item .project-info {
+    margin-left: 1.8em;
+}
+
+.bg {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    background-repeat: no-repeat;
+    background-size: 300% 100%;
+  }
+

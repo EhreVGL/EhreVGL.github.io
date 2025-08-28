@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sanal Müze Turu</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="aframe.min.js"></script>
+  </head>
+  <body>
+    <a-scene cursor="rayOrigin: mouse; fuse: false"  raycaster="objects: .clickable" vr-mode-ui="enabled: true">
+      <!-- Sahne içerikleri -->
+      <a-assets>
+        <a-asset-item id="my-glb-model" src="sergi_salonu_template.glb"></a-asset-item>
+      </a-assets>
+      <a-sky src="skybox.png" rotation="0 -130 0"></a-sky>
+
+      <!-- Kamera -->
+      <a-camera wasd-controls="enabled: true; acceleration: 20; deceleration: 50">
+        <a-cursor></a-cursor>
+
+        <!-- Kamera ile İlişkilendirilmiş Pop-up Konteyneri -->
+        <a-entity id="popup-container" position="0 0 -1.5">
+          <!-- Bilgi Pop-up'ı -->
+          <a-entity id="info-popup" visible="false">
+
+            <a-plane width="2" height="2" color="white" material="opacity: 0.7; shader: flat; depthTest: false; depthWrite: false;" renderOrder="-1"></a-plane>
+            <a-text id="popup-title" class="clickable-text" open-in-new-tab="https://www.deeplaystudio.com" value="Bilgi Metni" width="3" align="center" color="black" position="0 0 0.1" renderOrder="2"></a-text>
+            <a-text id="popup-description" value="Bilgi Metni" width="1.5" wrap-count="50" align="left" color="black" position="-0.8 -0.4 0.1" renderOrder="2"></a-text>
+          </a-entity>
+        </a-entity>
+      </a-camera>
+
+      <!-- Zemin -->
+      <a-entity gltf-model="#my-glb-model" position="0 -2 -5"></a-entity>
+
+      <!-- Duvarlar -->
+
+
+      <!-- Tavan -->
+      <a-plane position="0 5 0" rotation="90 0 0" width="10" height="10" color="#7BC8A4"></a-plane>
+
+      <!-- Sanat Eserleri -->
+      <a-entity class="clickable" position="-2 2 -4.6" animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter" animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave" data-title="Eser 1 Bilgisi" data-description="Bir zamanlar karanlikta kaybolmus bir yolcu, ay isigi altinda gizemli bir patikayi bulur. Sokak lambalarinin altin sarisi isiginda adimlarini yavaslatir. Yaninda, bugdayin altin rengi basaklari ruzgarla dans ederken, patikanin iki yaninda siralanmis lambalarin sicak isigi altinda hafifce kimildar. Gokyuzunde ise, gecenin karanligini yirtarcasina yukselen fenerler bir yildiz kaymasi misali usulca suzulur. Yolcu, bu buyulu yolda ilerlerken, fenerlerin her birinin altindan gecip, kendini farkli bir dunyanin sakinine donusturen bir seruvene adim atar.">
+          <a-image src="1.jpg" height="2" width="3" renderOrder="0" class="production-image"></a-image>
+      </a-entity>
+      <a-entity class="clickable" position="2 2 -4.6" animation__scale="property: scale; to: 1.2 1.2 1.2; dur: 200; startEvents: mouseenter" animation__scale_reverse="property: scale; to: 1 1 1; dur: 200; startEvents: mouseleave" data-title="Eser 2 Bilgisi" data-description="Daglarin golgesinde sakli kalmis gizli bir vadi vardir. Burasi, huzunle karisik bir guzelligi barindiran, yagmur damlalarinin nehirlerini besledigi bir cennettir. Kiraz ciceklerinin pembe yapraklari, yagmurla birlikte gole dusurken, suyun yuzeyi hafifce titrer. Gokyuzunden suzulen ince yagmur cizgileri, zamanin yavasladigi hissini verir. Bir sandalin kiyiya bagli oldugu, gol kiyisindaki kucuk bir iskelede, bir yalniz fener, kararli bir bekci gibi, isigini suya yansitir. Vadinin icindeki sessizlik, yalnizca ara sira uguldayan ruzgar ve dusen yagmur damlalarinin ritmik sesiyle bolunur. Bu resimdeki hikaye, doganin ve zamanin ic ice gectigi, huzurlu bir anin oykusunu anlatir.">
+          <a-image src="2.png" height="2" width="3" renderOrder="0" class="production-image"></a-image>
+      </a-entity>
+
+      <!-- Işıklandırma -->
+      <a-light type="ambient" color="#445451"></a-light>
+      <a-light type="point" intensity="0.5" position="2 4 4"></a-light>
+    </a-scene>
+
+    
+    <div id="dynamicContent"></div>
+
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+          document.querySelectorAll('.production-image').forEach(image => {
+              image.addEventListener('click', function () {
+                  document.querySelectorAll('.production-image').forEach(allImages => {
+                      allImages.setAttribute('material', 'shader: flat; opacity: 0.2; color: #FFFFFF');
+                      // Blur efekti için özel bir shader veya işlem gerekebilir.
+                  });
+              });
+          });
+      });
+      document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.clickable-text').forEach(item => {
+          item.addEventListener('click', function () {
+            // 'open-in-new-tab' özelliğini al ve yeni sekmede aç
+            var url = this.getAttribute('open-in-new-tab');
+            if (url) {
+              window.open(url, '_blank');
+            }
+          });
+        });
+      });
+      // Tıklanabilir öğeler için Event Listener ekleme
+      document.querySelectorAll('.clickable').forEach(item => {
+        item.addEventListener('click', function () {
+          // Pop-up gösterme işlemleri
+          var info = document.getElementById('info-popup');
+          info.setAttribute('visible', true);
+          // Cursor'u gizle
+          var cursor = document.querySelector('a-cursor');
+          cursor.setAttribute('visible', false);  
+
+          // 'data-name' değerini al ve a-text'in value'sine ata
+          var dataTitle = this.getAttribute('data-title');
+          var dataDescription = this.getAttribute('data-description');
+          var textTitle = document.querySelector('#info-popup #popup-title');
+          var textDescription = document.querySelector('#info-popup #popup-description');
+
+          textTitle.setAttribute('value', dataTitle);
+          textDescription.setAttribute('value', dataDescription);
+          
+          // Tıklanan görselin src'sini al
+          var clickedImageSrc = this.querySelector('a-image').getAttribute('src');
+
+
+          createDynamicContent(this.id);
+
+
+          // Pop-up içerisine görseli ekle
+          var popupImage = document.querySelector('#popup-image');
+          if (!popupImage) {
+            popupImage = document.createElement('a-image');
+            popupImage.setAttribute('id', 'popup-image');
+            popupImage.setAttribute('position', '0 1 0.1'); // Pop-up'ın üst kısmına konumlandır
+            popupImage.setAttribute('height', '0.666');  // Pop-up'a sığacak şekilde ayarla
+            popupImage.setAttribute('width', '1'); // Pop-up'a sığacak şekilde ayarla
+            popupImage.setAttribute('renderOrder', '2'); // Z-order'ı ayarla
+            info.appendChild(popupImage);
+          }
+          popupImage.setAttribute('src', clickedImageSrc);
+
+          // Görselin pop-up içinde merkezlenmesini sağla
+          var imageHeight = popupImage.getAttribute('height');
+          var imageYPosition = (imageHeight / 2) + 0.2; // Yüksekliği ve metin arasındaki mesafeyi hesapla
+          popupImage.setAttribute('position', '0 ' + imageYPosition + ' 0.1');
+        });
+      });
+
+      // Karakter hareketi izleme
+      let lastPosition = new THREE.Vector3();
+      let cameraEl = document.querySelector('a-camera');
+      const movementThreshold = 0.3; // Hareket eşik değeri
+
+      setInterval(() => {
+        let currentPosition = cameraEl.getAttribute('position');
+
+        if (lastPosition.distanceToSquared(currentPosition) > movementThreshold * movementThreshold) {
+          // Belirlenen eşik değerinden daha büyük bir hareket varsa pop-up'ı kapat
+          document.getElementById('info-popup').setAttribute('visible', false);
+
+          // Tüm production-image sınıflı a-image nesnelerini eski haline döndür
+          document.querySelectorAll('.production-image').forEach(image => {
+            image.setAttribute('material', 'shader: flat; opacity: 1; color: #FFFFFF'); // Önceki varsayılan değerlere dön
+          });
+
+          // Cursor'u tekrar göster
+          var cursor = document.querySelector('a-cursor');
+          cursor.setAttribute('visible', true);
+        }
+
+        lastPosition.copy(currentPosition);
+      }, 100); // Her 100 ms'de bir kontrol et
+
+      AFRAME.registerComponent('open-in-new-tab', {
+        schema: {type: 'string'},
+        init: function () {
+          var url = this.data;
+          this.el.addEventListener('click', function () {
+            window.open(url, '_blank');
+          });
+        }
+      });
+
+
+    </script>
+  </body>
+</html>

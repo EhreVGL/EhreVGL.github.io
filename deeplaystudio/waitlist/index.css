@@ -1,0 +1,130 @@
+/* Stil kurallarınızın başlangıcı */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  height: 100%;
+  font-size:24px;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-image: url('bg.jpg'); /* Masaüstü için varsayılan arka plan resmi */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #fafafa; /* Metin rengini beyaz yapın */
+  text-align: center;
+}
+
+.body {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.form-container {
+  width: 100%;
+  max-width: 700px;
+  height: 100%;
+  margin: auto;
+  position: relative;
+  padding: 20px; /* İç boşluk ekleyin */
+  box-sizing: border-box; /* Padding'i genişliğe dahil et */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Metin rengini beyaz yapın */
+}
+
+.form-step {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0; /* Tüm bölümleri aynı başlangıç noktasında tutun */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0; /* Başlangıçta görünmez olacak */
+  transform: scale(1.1); /* Başlangıçta biraz büyüt */
+  transition: opacity 0.5s, transform 0.5s; /* Geçiş efektleri */
+  pointer-events: none; /* Başlangıçta tıklanamaz */
+
+}
+
+.form-step.active {
+  opacity: 1;
+  transform: scale(1); /* Aktif bölüm normal boyutunda olacak */
+  pointer-events: auto; /* Aktif bölüm tıklanabilir */
+
+}
+
+.subtext {
+  color:rgba(255,255,255,0.7); 
+  font-size: 20px;
+}
+
+.explanation-text {
+  font-size: 16px;
+}
+
+.explanation-subtext {
+  font-size: 14px;
+}
+
+button {
+  padding: 10px 20px;
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: #7E3CBA;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition-duration: 0.1s;
+  transition-property: background-color;
+  transition-timing-function: ease-out;
+}
+
+button:hover {
+  background-color: #976CB5;
+}
+
+input {
+  display: block;
+    width: 110%;
+    font-family: inherit;
+    color: rgb(255, 255, 255);
+    padding-block-start: 0px;
+    padding-block-end: var(--spacing-100);
+    padding-inline: 0px;
+    border: none;
+    outline: none;
+    border-radius: 0px;
+    appearance: none;
+    background-image: none;
+    background-position: initial;
+    background-size: initial;
+    background-repeat: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    transform: translateZ(0px);
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    line-height: unset;
+    -webkit-text-fill-color: rgb(116, 105, 123);
+    animation: 1ms ease 0s 1 normal none running native-autofill-in;
+    transition: background-color 1e+08s ease 0s, box-shadow 0.1s ease-out 0s;
+    box-shadow: rgba(255, 255, 255, 0.3) 0px 1px;
+    background-color: transparent !important;
+}
+
+@media (max-width: 768px) {
+  body {
+    background-image: url('bg-mobile.jpg'); /* Mobil cihazlar için farklı bir arka plan resmi */
+  }
+  .form-step h2 {
+    font-size: 1.5em;
+  }
+}
