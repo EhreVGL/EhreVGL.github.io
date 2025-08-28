@@ -134,8 +134,9 @@ function init() {
   const detailsInactive = detailsEven ? "#details-odd" : "#details-even";
 
   if(width <= mobileDeviceWidth) {
-    offsetTop = height - 300;
+    offsetTop = height - 200;
     offsetLeft = 0;
+    cardHeight = 200;
   }
   else{
     offsetTop = height - 430;
