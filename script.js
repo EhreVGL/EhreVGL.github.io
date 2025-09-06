@@ -49,6 +49,36 @@ const data = [
         c_link: 'https://github.com/EhreVGL?tab=repositories',
         y_link: 'https://www.youtube.com/@onuraltunisik/videos'
     },
+    {
+        place:'On Google Play',
+        title:'CROSS MATH',
+        title2:'PUZZLE',
+        description:'Ready to boost your brainpower while having fun? CrossMathPuzzle is a unique and addictive puzzle game that combines the thrill of classic math challenges with an engaging logic twist. Perfect for all ages, this game will put your addition, subtraction, multiplication, and division skills to the test!',
+        image:'img/6.png',
+        color: '169, 215, 242',
+        c_link: 'https://play.google.com/store/apps/details?id=com.ehrevgl.crossmathpuzzle',
+        y_link: 'https://www.youtube.com/@onuraltunisik/videos'
+    },
+    {
+        place:'On Google Play',
+        title:'LINE BLAST',
+        title2:'PUZZLE',
+        description:'Line Blast Puzzle is a unique block-placing and line-blasting game that will challenge your mind while helping you relax! Place colorful blocks on the board, complete rows and columns to blast them, and aim for record-breaking scores. With simple rules and captivating gameplay, it offers the perfect experience for both beginners and seasoned puzzle lovers!',
+        image:'img/7.png',
+        color: '236, 235, 205',
+        c_link: 'https://play.google.com/store/apps/details?id=com.ehrevgl.lineblast',
+        y_link: 'https://www.youtube.com/@onuraltunisik/videos'
+    },
+    {
+        place:'A-FRAME',
+        title:'VR',
+        title2:'SHOWROOM',
+        description:'VR Showroom offers an immersive and interactive way to showcase your visuals and 3D models. Step into a virtual space where you can present your work with clarity, make adjustments effortlessly, and create a comfortable environment for your audience. With built-in navigation to a sales screen, it’s not just a presentation tool—it’s a complete experience that combines creativity, flexibility, and business in one place.',
+        image:'img/5.png',
+        color: '192, 249, 255',
+        c_link: 'https://github.com/EhreVGL',
+        y_link: 'https://www.youtube.com/@onuraltunisik/videos'
+    },
 ]
 
 const _ = (id)=>document.getElementById(id)
@@ -109,7 +139,7 @@ function animate(target, duration, properties) {
   });
 }
 
-let order = [0, 1, 2, 3, 4];
+let order = [0, 1, 2, 3, 4, 5, 6, 7];
 let detailsEven = true;
 
 let offsetTop = 200;

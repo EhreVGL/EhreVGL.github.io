@@ -8,7 +8,7 @@ body, html {
   }
   
   header, footer {
-    background-color: rgb(96, 27, 156); 
+    background-color: rgb(152, 224, 241); 
     color: white;
     text-align: center;
     justify-content: center;
@@ -33,7 +33,7 @@ body, html {
   
   aside {
     flex: 1; /* Yan içeriği daha dar yapar */
-    background-color: rgb(96, 27, 156); /* Açık sarı renk */
+    background-color: rgb(152, 224, 241);  /* Açık sarı renk */
     text-align: center;
   }
   /* Pop-up Stilleri */
@@ -88,7 +88,7 @@ body, html {
     width: 40px; /* Düğme genişliği */
     height: 40px; /* Düğme yüksekliği */
     border-radius: 50px 0 0 50px; /* Yarım yuvarlak şekil */
-    background-color: rgb(96, 27, 156);
+    background-color: rgb(152, 224, 241); 
     color: white;
     border: none;
     cursor: pointer;
@@ -106,13 +106,13 @@ body, html {
   right: -280px;
   top: 0;
   width: 250px;
-  background-color: #601b9c;
+  background-color: #98e0f1;
   color: white;
   transition: right 0.5s;
   padding: 15px;
   overflow-y: auto;
   height: 100%;
-  border-left: 3px solid #8b4fb3;
+  border-left: 3px solid #98e0f1;
 }
 
 #side-menu #toggle-aside {
@@ -277,14 +277,14 @@ nav a:hover {
   height: 2em; /* Logo yüksekliğini istediğiniz gibi ayarlayabilirsiniz */
 }
 .logo-text-long {
-  margin-left: 1em;
-  height: 2em; /* Logo yüksekliğini istediğiniz gibi ayarlayabilirsiniz */
+  margin-left: 0em;
+  height: 3em; /* Logo yüksekliğini istediğiniz gibi ayarlayabilirsiniz */
 }
 .logo-deepclub {
-  margin-left: 1em;
+  margin-left: 0em;
   height: 3em; /* Logo yüksekliğini istediğiniz gibi ayarlayabilirsiniz */
 }
 .logo-deepclub-text {
-  margin-left: 7em;
-  height: 1.75em; /* Logo yüksekliğini istediğiniz gibi ayarlayabilirsiniz */
+  margin-left: 5em;
+  height: 4em; /* Logo yüksekliğini istediğiniz gibi ayarlayabilirsiniz */
 }

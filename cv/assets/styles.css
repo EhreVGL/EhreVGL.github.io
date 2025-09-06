@@ -74,6 +74,9 @@ header h1 {
     background: #FF0000;
 }
 
+.social-links a.google:hover {
+    background: #00ff51;
+}
 section {
     margin: 20px auto;
     padding: 20px;
